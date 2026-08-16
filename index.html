@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayyan Subhani — Web Developer &amp; Video Editor</title>
+<meta name="description" content="Ayyan Subhani — Web Developer &amp; Video Editing Specialist. Websites, Shopify builds, AI automation and video editing that ship.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+
+<!-- ================= LOADER ================= -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-mark">AS</div>
+  <div class="loader-bar"><span></span></div>
+</div>
+
+<!-- ================= GRAIN / VIGNETTE OVERLAY ================= -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <a href="#hero" class="nav-logo">AYYAN<span>.</span></a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#about" data-label="About">About</a>
+    <a href="#services" data-label="Services">Services</a>
+    <a href="#skills" data-label="Skills">Skills</a>
+    <a href="#experience" data-label="Process">Process</a>
+    <a href="#contact" data-label="Contact">Contact</a>
+  </nav>
+  <a href="#contact" class="nav-cta">Let's Talk</a>
+  <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section id="hero" class="hero">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <!-- Fallback visual: shown if WebGL / Three.js is unavailable, or swap in a Higgsfield video/image (see README) -->
+    <video
+      id="hero-fallback-video"
+      class="hero-fallback"
+      autoplay muted loop playsinline preload="none"
+      poster="assets/images/hero-fallback-poster.jpg"
+      aria-hidden="true">
+      <source src="assets/videos/hero-fallback.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow" data-reveal>Web Development — Video Editing</p>
+        <h1 class="hero-title" data-reveal>
+          Hi, I'm<br><span class="hero-title-name">Ayyan Subhani</span>
+        </h1>
+        <p class="hero-subtitle" data-reveal>Web Developer &amp; Video Editing Specialist</p>
+        <p class="hero-desc" data-reveal>
+          I build fast, cinematic websites and cut video that holds attention —
+          from Shopify storefronts to AI-powered automations, shipped with an editor's
+          eye for pacing and a developer's eye for performance.
+        </p>
+        <div class="hero-cta" data-reveal>
+          <a href="#services" class="btn btn-primary">
+            <span>View My Work</span>
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            <span>Let's Work Together</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-portrait" data-reveal>
+        <div class="portrait-3d" id="portrait3d">
+          <div class="portrait-glow" aria-hidden="true"></div>
+          <div class="portrait-ring-layer"><div class="portrait-ring"></div></div>
+          <div class="portrait-frame">
+            <img src="assets/images/ayyan-portrait.jpg" alt="Portrait of Ayyan Subhani" width="1041" height="1008">
+            <div class="portrait-sheen" aria-hidden="true"></div>
+            <div class="portrait-edge" aria-hidden="true"></div>
+          </div>
+          <div class="portrait-tag">
+            <span class="dot"></span> Available for work
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"><i></i></div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="section about">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>001 — About</p>
+      <h2 data-reveal>Two crafts, one attention span.</h2>
+    </div>
+    <div class="about-grid">
+      <p class="about-lead" data-reveal>
+        I'm Ayyan — a web developer and video editing specialist. I spend my days
+        moving between two timelines: one measured in frames, the other in
+        milliseconds. Both come down to the same instinct — cut the noise,
+        keep the momentum, make it feel premium.
+      </p>
+      <div class="about-stats">
+        <div class="stat-card glass" data-reveal>
+          <span class="stat-num">30+</span>
+          <span class="stat-label">Projects Delivered</span>
+        </div>
+        <div class="stat-card glass" data-reveal>
+          <span class="stat-num">2</span>
+          <span class="stat-label">Crafts, One Studio</span>
+        </div>
+        <div class="stat-card glass" data-reveal>
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Performance-First Builds</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section id="services" class="section services">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>002 — Services</p>
+      <h2 data-reveal>What I build &amp; edit.</h2>
+    </div>
+
+    <div class="services-grid">
+
+      <article class="service-card glass" data-reveal>
+        <div class="service-icon" data-icon="code"></div>
+        <h3>Website Development</h3>
+        <p>Custom-built, responsive websites engineered for speed and built to convert — from marketing sites to full web apps.</p>
+      </article>
+
+      <article class="service-card glass" data-reveal>
+        <div class="service-icon" data-icon="refresh"></div>
+        <h3>Website Redesign</h3>
+        <p>Outdated site, new identity. I rebuild the experience without losing your SEO equity or your customers.</p>
+      </article>
+
+      <article class="service-card glass" data-reveal>
+        <div class="service-icon" data-icon="layout"></div>
+        <h3>Landing Pages</h3>
+        <p>High-conversion landing pages built for launches, campaigns and ads — fast to load, sharp to look at.</p>
+      </article>
+
+      <article class="service-card glass" data-reveal>
+        <div class="service-icon" data-icon="cart"></div>
+        <h3>Shopify Development</h3>
+        <p>Custom Shopify themes and storefronts tailored to your brand, optimized for checkout and mobile shoppers.</p>
+      </article>
+
+      <article class="service-card glass" data-reveal>
+        <div class="service-icon" data-icon="ai"></div>
+        <h3>AI Automation</h3>
+        <p>Workflow and content automations that remove repetitive work — from chat agents to backend pipelines.</p>
+      </article>
+
+      <article class="service-card glass" data-reveal>
+        <div class="service-icon" data-icon="film"></div>
+        <h3>Video Editing</h3>
+        <p>Narrative-driven edits for social, ads and brand content — paced, color-graded and sound-designed to hold attention.</p>
+      </article>
+
+      <article class="service-card glass" data-reveal>
+        <div class="service-icon" data-icon="design"></div>
+        <h3>Graphic Designing</h3>
+        <p>Brand visuals, social kits and thumbnails that keep a consistent identity across every touchpoint.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills" class="section skills">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>003 — Skills</p>
+      <h2 data-reveal>Tools of the trade.</h2>
+    </div>
+
+    <div class="skills-columns">
+      <div class="skills-col" data-reveal>
+        <h4 class="skills-col-title">Development</h4>
+        <ul class="skill-bars">
+          <li><div class="skill-row"><span>HTML / CSS / JavaScript</span><em>95%</em></div><div class="bar"><i style="--val:95%"></i></div></li>
+          <li><div class="skill-row"><span>Shopify / Liquid</span><em>90%</em></div><div class="bar"><i style="--val:90%"></i></div></li>
+          <li><div class="skill-row"><span>Three.js / WebGL</span><em>80%</em></div><div class="bar"><i style="--val:80%"></i></div></li>
+          <li><div class="skill-row"><span>GSAP Animation</span><em>88%</em></div><div class="bar"><i style="--val:88%"></i></div></li>
+          <li><div class="skill-row"><span>AI Automation / APIs</span><em>82%</em></div><div class="bar"><i style="--val:82%"></i></div></li>
+        </ul>
+      </div>
+
+      <div class="skills-col" data-reveal>
+        <h4 class="skills-col-title">Editing &amp; Design</h4>
+        <ul class="skill-bars">
+          <li><div class="skill-row"><span>Video Editing</span><em>95%</em></div><div class="bar"><i style="--val:95%"></i></div></li>
+          <li><div class="skill-row"><span>Color Grading</span><em>85%</em></div><div class="bar"><i style="--val:85%"></i></div></li>
+          <li><div class="skill-row"><span>Motion Graphics</span><em>78%</em></div><div class="bar"><i style="--val:78%"></i></div></li>
+          <li><div class="skill-row"><span>Sound Design</span><em>75%</em></div><div class="bar"><i style="--val:75%"></i></div></li>
+          <li><div class="skill-row"><span>Graphic Design</span><em>83%</em></div><div class="bar"><i style="--val:83%"></i></div></li>
+        </ul>
+      </div>
+
+      <div class="skills-col skills-tools" data-reveal>
+        <h4 class="skills-col-title">Stack</h4>
+        <div class="tool-chips">
+          <span>Figma</span><span>VS Code</span><span>Premiere Pro</span>
+          <span>After Effects</span><span>DaVinci Resolve</span><span>Shopify</span>
+          <span>Three.js</span><span>GSAP</span><span>Blender</span>
+          <span>Git</span><span>Node.js</span><span>Higgsfield</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE / PROCESS ================= -->
+  <section id="experience" class="section experience">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>004 — Process</p>
+      <h2 data-reveal>How a project moves.</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-line" aria-hidden="true"><i id="timelineFill"></i></div>
+
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-code">00:00</div>
+        <div class="timeline-body glass">
+          <h3>Discover</h3>
+          <p>Understand the brand, the audience and the goal before a single line of code or a single cut is made.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-code">00:12</div>
+        <div class="timeline-body glass">
+          <h3>Design</h3>
+          <p>Wireframes, moodboards and a visual direction — agreed on before it's built, not after.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-code">00:27</div>
+        <div class="timeline-body glass">
+          <h3>Build &amp; Edit</h3>
+          <p>Development and editing happen in tight loops — ship a piece, review, refine, repeat.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-code">00:41</div>
+        <div class="timeline-body glass">
+          <h3>Launch</h3>
+          <p>Performance-checked, cross-device tested and deployed — then handed off with room to grow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="section contact">
+    <div class="contact-inner">
+      <p class="eyebrow" data-reveal>005 — Contact</p>
+      <h2 class="contact-title" data-reveal>Got a project in mind?<br>Let's build it.</h2>
+      <p class="contact-sub" data-reveal>Tell me a little about it — I reply within a day.</p>
+
+      <form
+  class="contact-form glass"
+  id="contactForm"
+  action="https://formspree.io/f/xoeankdr"
+  method="POST"
+  data-reveal>
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+        </div>
+        <div class="field">
+          <label for="service">What do you need?</label>
+          <select id="service" name="service">
+            <option>Website Development</option>
+            <option>Website Redesign</option>
+            <option>Landing Page</option>
+            <option>Shopify Development</option>
+            <option>AI Automation</option>
+            <option>Video Editing</option>
+            <option>Graphic Designing</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit">
+          <span id="submitLabel">Send Message</span>
+        </button>
+        <p class="form-note" id="formNote">
+  Your message will be sent directly to my email.
+</p>
+      </form>
+
+      <div class="contact-links" data-reveal>
+        <a href="mailto:hello@ayyansubhani.com">hello@ayyansubhani.com</a>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="GitHub">GitHub</a>
+          <a href="#" aria-label="Behance">Behance</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-top">
+    <span class="footer-logo">AYYAN SUBHANI</span>
+    <a href="#hero" class="footer-back">Back to top ↑</a>
+  </div>
+  <div class="footer-bottom">
+    <p>© <span id="year"></span> Ayyan Subhani. All rights reserved.</p>
+    <p>Web Developer &amp; Video Editing Specialist</p>
+  </div>
+</footer>
+
+<!-- ================= TIMELINE SCRUBBER (signature scroll progress) ================= -->
+<div class="scrubber" id="scrubber" aria-hidden="true">
+  <div class="scrubber-track">
+    <div class="scrubber-fill" id="scrubberFill"></div>
+    <div class="scrubber-playhead" id="scrubberPlayhead"></div>
+  </div>
+  <div class="scrubber-timecode" id="scrubberTimecode">00:00:00:00</div>
+</div>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
