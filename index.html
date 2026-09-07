@@ -4,13 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ayyan Subhani — Web Developer &amp; Video Editor</title>
-<meta name="description" content="Ayyan Subhani — Web Developer &amp; Video Editing Specialist. Websites, Shopify builds, AI automation and video editing that ship.">
+<meta name="description" content="Ayyan Subhani — Web Developer &amp; Video Editing Specialist. Cinematic websites, Shopify builds, AI automation and video editing that ship.">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="data:,">
 </head>
@@ -18,25 +19,34 @@
 
 <!-- ================= LOADER ================= -->
 <div id="loader" aria-hidden="true">
-  <div class="loader-mark">AS</div>
-  <div class="loader-bar"><span></span></div>
+  <div class="loader-inner">
+    <div class="loader-word" id="loaderWord" aria-label="Ayyan Builds"></div>
+    <p class="loader-sub">Web Development — Video Editing</p>
+    <div class="loader-meter">
+      <div class="loader-bar"><span id="loaderBarFill"></span></div>
+      <span class="loader-pct" id="loaderPct">0%</span>
+    </div>
+  </div>
 </div>
 
-<!-- ================= GRAIN / VIGNETTE OVERLAY ================= -->
+<!-- ================= CUSTOM CURSOR ================= -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<!-- ================= GRAIN OVERLAY ================= -->
 <div class="grain" aria-hidden="true"></div>
 
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
-  <a href="#hero" class="nav-logo">AYYAN<span>.</span></a>
+  <a href="#hero" class="nav-logo" data-magnetic><span class="m-inner">AYYAN<span>.</span></span></a>
   <nav class="nav-links" id="navLinks">
     <a href="#about" data-label="About">About</a>
     <a href="#services" data-label="Services">Services</a>
     <a href="#skills" data-label="Skills">Skills</a>
-    <a href="#experience" data-label="Process">Process</a>
-    <a href="#portfolio" data-label="Portfolio">Portfolio</a>
+    <a href="#portfolio" data-label="Work">Work</a>
     <a href="#contact" data-label="Contact">Contact</a>
   </nav>
-  <a href="#contact" class="nav-cta">Let's Talk</a>
+  <a href="#contact" class="nav-cta" data-magnetic><span>Let's Talk</span></a>
   <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -48,7 +58,6 @@
   <section id="hero" class="hero">
     <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
-    <!-- Fallback visual: shown if WebGL / Three.js is unavailable, or swap in a Higgsfield video/image (see README) -->
     <video
       id="hero-fallback-video"
       class="hero-fallback"
@@ -60,37 +69,34 @@
 
     <div class="hero-inner">
       <div class="hero-copy">
-        <p class="eyebrow" data-reveal>Web Development — Video Editing</p>
+        <p class="eyebrow" data-reveal>AI • Automation • Web Development</p>
         <h1 class="hero-title" data-reveal>
-          Hi, I'm<br><span class="hero-title-name">Ayyan Subhani</span>
+          <span class="line"><span>Building digital experiences</span></span>
+          <span class="line"><span class="hero-title-alive">that feel alive.</span></span>
         </h1>
-        <p class="hero-subtitle" data-reveal>Web Developer &amp; Video Editing Specialist</p>
+        <p class="hero-subtitle" data-reveal><strong>Ayyan Subhani</strong> — Web Developer &amp; Video Editing Specialist</p>
         <p class="hero-desc" data-reveal>
           I build fast, cinematic websites and cut video that holds attention —
           from Shopify storefronts to AI-powered automations, shipped with an editor's
           eye for pacing and a developer's eye for performance.
         </p>
         <div class="hero-cta" data-reveal>
-          <a href="#services" class="btn btn-primary">
-            <span>View My Work</span>
-          </a>
-          <a href="#contact" class="btn btn-ghost">
-            <span>Let's Work Together</span>
-          </a>
+          <a href="#portfolio" class="btn btn-primary" data-magnetic data-cursor="link"><span>View My Work</span></a>
+          <a href="#contact" class="btn btn-ghost" data-magnetic data-cursor="link"><span>Let's Build</span></a>
         </div>
       </div>
 
-      <div class="hero-portrait" data-reveal>
-        <div class="portrait-3d" id="portrait3d">
-          <div class="portrait-glow" aria-hidden="true"></div>
-          <div class="portrait-ring-layer"><div class="portrait-ring"></div></div>
-          <div class="portrait-frame">
-            <img src="assets/images/ayyan-portrait.jpg" alt="Portrait of Ayyan Subhani" width="1041" height="1008">
-            <div class="portrait-sheen" aria-hidden="true"></div>
-            <div class="portrait-edge" aria-hidden="true"></div>
-          </div>
-          <div class="portrait-tag">
-            <span class="dot"></span> Available for work
+      <div class="hero-visual" data-reveal>
+        <div class="hero-portrait">
+          <div class="portrait-3d" id="portrait3d">
+            <div class="portrait-glow" aria-hidden="true"></div>
+            <div class="portrait-frame">
+              <img src="assets/images/ayyan-portrait.jpg" alt="Portrait of Ayyan Subhani" width="1041" height="1008">
+              <div class="portrait-sheen" aria-hidden="true"></div>
+              <div class="portrait-edge" aria-hidden="true"></div>
+            </div>
+            <div class="portrait-chip chip-role">Dev + Editor</div>
+            <div class="portrait-chip chip-status"><span class="dot"></span> Available for work</div>
           </div>
         </div>
       </div>
@@ -109,12 +115,21 @@
       <h2 data-reveal>Two crafts, one attention span.</h2>
     </div>
     <div class="about-grid">
-      <p class="about-lead" data-reveal>
-        I'm Ayyan — a web developer and video editing specialist. I spend my days
-        moving between two timelines: one measured in frames, the other in
-        milliseconds. Both come down to the same instinct — cut the noise,
-        keep the momentum, make it feel premium.
-      </p>
+      <div>
+        <p class="about-lead" data-reveal>
+          I'm Ayyan — a web developer and video editing specialist. I spend my days
+          moving between two timelines: one measured in frames, the other in
+          milliseconds. Both come down to the same instinct — cut the noise,
+          keep the momentum, make it feel premium.
+        </p>
+        <div class="about-focus" data-reveal>
+          <span>AI</span>
+          <span>Web Development</span>
+          <span>Automation</span>
+          <span>UI/UX</span>
+          <span>Creative Technology</span>
+        </div>
+      </div>
       <div class="about-stats">
         <div class="stat-card glass" data-reveal>
           <span class="stat-num">30+</span>
@@ -140,49 +155,41 @@
     </div>
 
     <div class="services-grid">
-
       <article class="service-card glass" data-reveal>
         <div class="service-icon" data-icon="code"></div>
         <h3>Website Development</h3>
         <p>Custom-built, responsive websites engineered for speed and built to convert — from marketing sites to full web apps.</p>
       </article>
-
       <article class="service-card glass" data-reveal>
         <div class="service-icon" data-icon="refresh"></div>
         <h3>Website Redesign</h3>
         <p>Outdated site, new identity. I rebuild the experience without losing your SEO equity or your customers.</p>
       </article>
-
       <article class="service-card glass" data-reveal>
         <div class="service-icon" data-icon="layout"></div>
         <h3>Landing Pages</h3>
         <p>High-conversion landing pages built for launches, campaigns and ads — fast to load, sharp to look at.</p>
       </article>
-
       <article class="service-card glass" data-reveal>
         <div class="service-icon" data-icon="cart"></div>
         <h3>Shopify Development</h3>
         <p>Custom Shopify themes and storefronts tailored to your brand, optimized for checkout and mobile shoppers.</p>
       </article>
-
       <article class="service-card glass" data-reveal>
         <div class="service-icon" data-icon="ai"></div>
         <h3>AI Automation</h3>
         <p>Workflow and content automations that remove repetitive work — from chat agents to backend pipelines.</p>
       </article>
-
       <article class="service-card glass" data-reveal>
         <div class="service-icon" data-icon="film"></div>
         <h3>Video Editing</h3>
         <p>Narrative-driven edits for social, ads and brand content — paced, color-graded and sound-designed to hold attention.</p>
       </article>
-
       <article class="service-card glass" data-reveal>
         <div class="service-icon" data-icon="design"></div>
         <h3>Graphic Designing</h3>
         <p>Brand visuals, social kits and thumbnails that keep a consistent identity across every touchpoint.</p>
       </article>
-
     </div>
   </section>
 
@@ -193,30 +200,52 @@
       <h2 data-reveal>Tools of the trade.</h2>
     </div>
 
-    <div class="skills-columns">
-      <div class="skills-col" data-reveal>
-        <h4 class="skills-col-title">Development</h4>
+    <div class="skills-grid">
+      <div class="skill-card glass" data-reveal>
+        <div class="skill-card-head"><h3>Frontend</h3><em>Core</em></div>
+        <div class="skill-tag-list">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Next.js</span>
+        </div>
+      </div>
+      <div class="skill-card glass" data-reveal>
+        <div class="skill-card-head"><h3>AI</h3><em>Growing</em></div>
+        <div class="skill-tag-list">
+          <span>AI APIs</span><span>Prompt Engineering</span><span>AI Agents</span><span>Generative AI</span>
+        </div>
+      </div>
+      <div class="skill-card glass" data-reveal>
+        <div class="skill-card-head"><h3>Automation</h3><em>Growing</em></div>
+        <div class="skill-tag-list">
+          <span>n8n</span><span>Activepieces</span><span>APIs</span><span>Webhooks</span><span>Workflow Automation</span>
+        </div>
+      </div>
+      <div class="skill-card glass" data-reveal>
+        <div class="skill-card-head"><h3>Design</h3><em>Core</em></div>
+        <div class="skill-tag-list">
+          <span>UI/UX</span><span>Motion Design</span><span>3D Web Experiences</span>
+        </div>
+      </div>
+      <div class="skill-card glass" data-reveal>
+        <div class="skill-card-head"><h3>Editing</h3><em>Core</em></div>
+        <div class="skill-tag-list">
+          <span>Video Editing</span><span>Color Grading</span><span>Motion Graphics</span><span>Sound Design</span><span>Graphic Design</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-bars">
+      <div data-reveal>
+        <h4 class="skills-col-title">Proficiency</h4>
         <ul class="skill-bars">
           <li><div class="skill-row"><span>HTML / CSS / JavaScript</span><em>95%</em></div><div class="bar"><i style="--val:95%"></i></div></li>
           <li><div class="skill-row"><span>Shopify / Liquid</span><em>90%</em></div><div class="bar"><i style="--val:90%"></i></div></li>
           <li><div class="skill-row"><span>Three.js / WebGL</span><em>80%</em></div><div class="bar"><i style="--val:80%"></i></div></li>
           <li><div class="skill-row"><span>GSAP Animation</span><em>88%</em></div><div class="bar"><i style="--val:88%"></i></div></li>
           <li><div class="skill-row"><span>AI Automation / APIs</span><em>82%</em></div><div class="bar"><i style="--val:82%"></i></div></li>
-        </ul>
-      </div>
-
-      <div class="skills-col" data-reveal>
-        <h4 class="skills-col-title">Editing &amp; Design</h4>
-        <ul class="skill-bars">
           <li><div class="skill-row"><span>Video Editing</span><em>95%</em></div><div class="bar"><i style="--val:95%"></i></div></li>
-          <li><div class="skill-row"><span>Color Grading</span><em>85%</em></div><div class="bar"><i style="--val:85%"></i></div></li>
-          <li><div class="skill-row"><span>Motion Graphics</span><em>78%</em></div><div class="bar"><i style="--val:78%"></i></div></li>
-          <li><div class="skill-row"><span>Sound Design</span><em>75%</em></div><div class="bar"><i style="--val:75%"></i></div></li>
-          <li><div class="skill-row"><span>Graphic Design</span><em>83%</em></div><div class="bar"><i style="--val:83%"></i></div></li>
         </ul>
       </div>
-
-      <div class="skills-col skills-tools" data-reveal>
+      <div class="skills-tools" data-reveal>
         <h4 class="skills-col-title">Stack</h4>
         <div class="tool-chips">
           <span>Figma</span><span>VS Code</span><span>Premiere Pro</span>
@@ -245,7 +274,6 @@
           <p>Understand the brand, the audience and the goal before a single line of code or a single cut is made.</p>
         </div>
       </div>
-
       <div class="timeline-item" data-reveal>
         <div class="timeline-code">00:12</div>
         <div class="timeline-body glass">
@@ -253,7 +281,6 @@
           <p>Wireframes, moodboards and a visual direction — agreed on before it's built, not after.</p>
         </div>
       </div>
-
       <div class="timeline-item" data-reveal>
         <div class="timeline-code">00:27</div>
         <div class="timeline-body glass">
@@ -261,7 +288,6 @@
           <p>Development and editing happen in tight loops — ship a piece, review, refine, repeat.</p>
         </div>
       </div>
-
       <div class="timeline-item" data-reveal>
         <div class="timeline-code">00:41</div>
         <div class="timeline-body glass">
@@ -280,26 +306,41 @@
     </div>
 
     <div class="portfolio-grid">
-
-      <article class="project-card glass" data-reveal>
+      <article class="project-card glass" data-reveal
+        data-project
+        data-title="SGS Wall Clock"
+        data-category="Landing Page — Corporate Brand"
+        data-desc="A premium landing page for a custom corporate wall clock brand — designed and manufactured for businesses that want their brand visible every day, every second."
+        data-tags="HTML,CSS,JavaScript"
+        data-image="assets/images/sgs-wall-clock.png"
+        data-live="https://subhaniayyan881-netizen.github.io/sgswallclock/"
+        data-github="https://subhaniayyan881-netizen.github.io/sgswallclock/">
         <div class="project-image">
           <img src="assets/images/sgs-wall-clock.png" alt="SGS Wall Clock website homepage screenshot" loading="lazy">
+          <span class="project-expand-hint">View Case Study →</span>
         </div>
         <div class="project-body">
+          <span class="project-category">Landing Page — Corporate Brand</span>
           <h3>SGS Wall Clock</h3>
           <p>A premium landing page for a custom corporate wall clock brand — designed and manufactured for businesses that want their brand visible every day, every second.</p>
-          <div class="project-tags">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-          </div>
+          <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
           <div class="project-links">
-            <a href="https://subhaniayyan881-netizen.github.io/sgswallclock/" target="_blank" rel="noopener noreferrer">Live Demo →</a>
-            <a href="https://subhaniayyan881-netizen.github.io/sgswallclock/" target="_blank" rel="noopener noreferrer">GitHub →</a>
+            <a href="https://subhaniayyan881-netizen.github.io/sgswallclock/" target="_blank" rel="noopener noreferrer" data-cursor="link">Live Demo →</a>
+            <a href="https://subhaniayyan881-netizen.github.io/sgswallclock/" target="_blank" rel="noopener noreferrer" data-cursor="link">GitHub →</a>
           </div>
         </div>
       </article>
 
+      <article class="project-card glass is-placeholder" data-reveal>
+        <div class="project-image">
+          <span class="placeholder-mark">More work in progress</span>
+        </div>
+        <div class="project-body">
+          <span class="project-category">Coming Soon</span>
+          <h3>Next case study</h3>
+          <p>This slot is reserved for the next build — swap in a project title, description, tags and links whenever it's ready.</p>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -307,15 +348,15 @@
   <section id="contact" class="section contact">
     <div class="contact-inner">
       <p class="eyebrow" data-reveal>006 — Contact</p>
-      <h2 class="contact-title" data-reveal>Got a project in mind?<br>Let's build it.</h2>
+      <h2 class="contact-title" data-reveal>Let's build something<br>extraordinary.</h2>
       <p class="contact-sub" data-reveal>Tell me a little about it — I reply within a day.</p>
 
       <form
-  class="contact-form glass"
-  id="contactForm"
-  action="https://formspree.io/f/xoeankdr"
-  method="POST"
-  data-reveal>
+        class="contact-form glass"
+        id="contactForm"
+        action="https://formspree.io/f/xoeankdr"
+        method="POST"
+        data-reveal>
         <div class="form-row">
           <div class="field">
             <label for="name">Name</label>
@@ -343,30 +384,19 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="4" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary btn-submit">
+        <button type="submit" class="btn btn-primary btn-submit" data-magnetic data-cursor="link">
           <span id="submitLabel">Send Message</span>
         </button>
-        <p class="form-note" id="formNote">
-  Your message will be sent directly to my email.
-</p>
+        <p class="form-note" id="formNote">Your message will be sent directly to my email.</p>
       </form>
 
       <div class="contact-links" data-reveal>
-        <a href="mailto:ayyanbuilds@gmail.com">ayyanbuilds@gmail.com</a>
+        <a href="mailto:ayyanbuilds@gmail.com" data-cursor="link">ayyanbuilds@gmail.com</a>
         <div class="social-row">
-          <a href="https://instagram.com/ayyanbuilds
-          " target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-      Instagram
-    </a>
-          <a href="https://www.facebook.com/ayyanbuilds" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-      Facebook
-    </a>
-          <a href="https://www.tiktok.com/@ayyanbuilds" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-      Tiktok
-    </a>
-          <a href="https://www.youtube.com/@ayyanbuilds" target="_blank" rel="noopener noreferrer" aria-label="Behance">
-      Youtube
-    </a>
+          <a href="https://instagram.com/ayyanbuilds" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-cursor="link">Instagram</a>
+          <a href="https://www.facebook.com/ayyanbuilds" target="_blank" rel="noopener noreferrer" aria-label="Facebook" data-cursor="link">Facebook</a>
+          <a href="https://www.tiktok.com/@ayyanbuilds" target="_blank" rel="noopener noreferrer" aria-label="TikTok" data-cursor="link">Tiktok</a>
+          <a href="https://www.youtube.com/@ayyanbuilds" target="_blank" rel="noopener noreferrer" aria-label="YouTube" data-cursor="link">Youtube</a>
         </div>
       </div>
     </div>
@@ -374,11 +404,36 @@
 
 </main>
 
+<!-- ================= PROJECT DETAIL OVERLAY ================= -->
+<div class="project-overlay" id="projectOverlay" aria-hidden="true">
+  <button class="overlay-close" id="overlayClose" aria-label="Close case study" data-cursor="link">×</button>
+  <div class="project-overlay-inner">
+    <div class="overlay-media"><img id="overlayImage" src="" alt=""></div>
+    <div class="overlay-head">
+      <div>
+        <span class="project-category" id="overlayCategory"></span>
+        <h2 id="overlayTitle"></h2>
+      </div>
+    </div>
+    <div class="overlay-grid">
+      <p class="overlay-desc" id="overlayDesc"></p>
+      <dl class="overlay-meta">
+        <dt>Technologies</dt>
+        <dd id="overlayTags"></dd>
+      </dl>
+    </div>
+    <div class="overlay-cta">
+      <a href="#" id="overlayLive" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-cursor="link"><span>Live Demo →</span></a>
+      <a href="#" id="overlayGithub" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" data-cursor="link"><span>GitHub →</span></a>
+    </div>
+  </div>
+</div>
+
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="footer-top">
     <span class="footer-logo">AYYAN SUBHANI</span>
-    <a href="#hero" class="footer-back">Back to top ↑</a>
+    <a href="#hero" class="footer-back" data-magnetic><span>Back to top ↑</span></a>
   </div>
   <div class="footer-bottom">
     <p>© <span id="year"></span> Ayyan Subhani. All rights reserved.</p>
@@ -386,7 +441,7 @@
   </div>
 </footer>
 
-<!-- ================= TIMELINE SCRUBBER (signature scroll progress) ================= -->
+<!-- ================= TIMELINE SCRUBBER ================= -->
 <div class="scrubber" id="scrubber" aria-hidden="true">
   <div class="scrubber-track">
     <div class="scrubber-fill" id="scrubberFill"></div>
@@ -399,6 +454,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="script.js"></script>
+<script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
